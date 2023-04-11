@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Score Board',
       home: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
           
-          backgroundColor: Color.fromARGB(255, 6, 121, 109),
+          backgroundColor: Colors.black,
           title: Text('Score Board',style: TextStyle(
             color: Colors.white,
           ),),
@@ -27,42 +28,65 @@ class MyApp extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Container(
-                          color: Colors.teal,
+                          color: Colors.black,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: Colors.white,
-                                child: Text(
-                                  '2',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                              Builder(
+                                builder: (context) {
+                                  return Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 45,
+                                        backgroundColor: Colors.white,
+                                        child: Text(
+                                          '2',
+                                          style: TextStyle(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black
+                                          ),
+                                        ),
+                                      ),
+                                      Text('name',style: TextStyle(color: Colors.white),)
+                                    ],
+                                  );
+                                }
                               ),
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: Colors.white,
-                                child: Text(
-                                  '1',
-                                  style: TextStyle(
-                                    fontSize: 60,
-                                    fontWeight: FontWeight.bold,
+                              Column(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 50,
+                                    backgroundColor: Colors.white,
+                                    child: Text(
+                                      '1',
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,color: Colors.black
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  Text('name',style: TextStyle(color: Colors.white),)
+                                ],
                               ),
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: Colors.white,
-                                child: Text(
-                                  '3',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CircleAvatar(
+                                    radius: 45,
+                                    backgroundColor: Colors.white,
+                                    child: Text(
+                                      '3',
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  Text('name',style: TextStyle(color: Colors.white),)
+                                ],
                               ),
                             ],
                           ),
@@ -71,7 +95,7 @@ class MyApp extends StatelessWidget {
                       ),
                       Expanded(
                         child: Container(
-                          color: Color.fromARGB(255, 3, 26, 45),
+                          color: Colors.black,
                         ),
                       ),
                     ],
@@ -92,11 +116,22 @@ class MyApp extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 8,right: 8),
                     child: Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        color: Color.fromARGB(255, 2, 53, 95),
+                        border: Border.all(color: Color.fromARGB(255, 20, 19, 19)),
+                        color: Color.fromARGB(255, 55, 54, 54),
                       ),
                       child: ListTile(
-                        title: Text('${items[index]}'),
+                        title: Text('${items[index]}',
+                        style: TextStyle(
+                          color: Colors.teal
+                        ),),
+                        trailing: Text('score',
+                        style: TextStyle(color: Colors.teal),),
+                        leading: CircleAvatar(radius: 20,
+                                backgroundColor: Colors.white,
+                                child: Text(
+                                  'A',
+                                  
+                                ),),
                         subtitle: Text('Item $index'),
                         tileColor: Colors.blue[50],
                       ),
